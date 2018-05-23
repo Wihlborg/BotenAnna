@@ -25,7 +25,7 @@ client.on("message", (message) => {
       message.channel.send("Polo!");
       break;
 
-    case "help":
+    case "help": //ger felmeddelande i chatten
       const jeb = client.emojis.get("448644205913309204");
       message.channel.send(`${jeb}`);
       break;
@@ -35,7 +35,7 @@ client.on("message", (message) => {
       message.channel.send(emojiList);
       break;
 
-    case "benka":
+    case "benka": //funkar inte alls
       const beng = client.emojis.get("448644477155016714");
       message.channel.send(beng)
       break;
