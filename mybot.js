@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const config = require("./config.json");
-const badwords = ["svart", "asiat", "norsk", "norge", "neger", "black"];
+const badwords = ["svart", "asiat", "norsk", "norge", "neger", "black", "vit", "white"];
 
 client.on("ready", () => {
   console.log("I am ready!");
