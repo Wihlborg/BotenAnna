@@ -6,10 +6,10 @@ const badwords = ["svart", "asiat", "norsk", "norge", "neger", "black", "vit", "
 
 client.on("ready", () => {
   console.log("I am ready!");
-  client.user.setActivity({game: {name: "with myself", type: 0}}); //funkar inte
 });
 
 client.on("message", (message) => {
+  client.user.setActivity("with myself");
   if(message.author.id == "371358863724773388"){ //Oskar
     message.react("💩");
   }
