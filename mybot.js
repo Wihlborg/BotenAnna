@@ -2,22 +2,31 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const config = require("./config.json");
+const badwords = ["svart", "asiat", "norsk", "norge", "neger", "black"];
 
 client.on("ready", () => {
   console.log("I am ready!");
-  client.user.setActivity({game: {name: "with myself", type: 0}});
+  client.user.setActivity({game: {name: "with myself", type: 0}}); //funkar inte
 });
 
 client.on("message", (message) => {
+  if(message.author.id == "371358863724773388"){ //Oskar
+    message.react("💩");
+  }
+
+  if (badwords.some(word => message.content.includes(word.toLowerCase())) ) { //cmonbruh, no racism
+    const bruh = client.emojis.find("name", "bruh");
+    message.react(bruh.id);
+  }
+
   if (!message.content.startsWith(config.prefix)) {
     return;
   }
+  //nedanstående gäller endast om meddelandet börjar med prefix
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  if(message.author.name == "Fotte"){
-    message.react("💩");
-  }
+
 
 
   switch (command) {
@@ -25,8 +34,8 @@ client.on("message", (message) => {
       message.channel.send("Polo!");
       break;
 
-    case "help": //ger felmeddelande i chatten
-      const jeb = client.emojis.get("448644205913309204");
+    case "help":
+      const jeb = client.emojis.find("name", "jebaited");
       message.channel.send(`${jeb}`);
       break;
 
@@ -35,9 +44,9 @@ client.on("message", (message) => {
       message.channel.send(emojiList);
       break;
 
-    case "benka": //funkar inte alls
-      const beng = client.emojis.get("448644477155016714");
-      message.channel.send(beng)
+    case "benka":
+      const beng = client.emojis.find("name", "FeelsBenkaMan");
+      message.channel.send(`${beng}`);
       break;
 
     case "schema":
