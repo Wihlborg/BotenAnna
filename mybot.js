@@ -10,9 +10,6 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
   client.user.setActivity("with myself");
-  if(message.author.id == "371358863724773388"){ //Oskar
-    message.react("💩");
-  }
 
   if (badwords.some(word => message.content.includes(word.toLowerCase())) ) { //cmonbruh, no racism
     const bruh = client.emojis.find("name", "bruh");
@@ -56,6 +53,12 @@ client.on("message", (message) => {
     case "poop":
       message.react("💩");
       break;
+
+    case "steve":
+      message.channel.send("https://cdn.discordapp.com/attachments/345659033971326996/367200478993580042/Steve1.png " +
+                            "https://cdn.discordapp.com/attachments/345659033971326996/367200480276905994/Steve2.png " +
+                            "https://cdn.discordapp.com/attachments/345659033971326996/367200481589854211/Steve3.png " +
+                            "https://cdn.discordapp.com/attachments/345659033971326996/367200483426697216/Steve4.png")
   }
 });
 
